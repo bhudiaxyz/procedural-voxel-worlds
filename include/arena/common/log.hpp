@@ -14,5 +14,15 @@
 // // Use the default [context-less] logger (stdout, multi-threaded, colored)
 // spdlog::info("Welcome to spdlog - {} [{}]!", prog.filename().string(), prog.parent_path().string());
 
+namespace arena {
+
+inline void logger_init() {
+#ifndef NDEBUG
+    spdlog::set_level(spdlog::level::debug);
+#endif
+}
+
+}  // namespace arena
+
 
 #endif  // _ARENA_COMMON_LOG_HPP_

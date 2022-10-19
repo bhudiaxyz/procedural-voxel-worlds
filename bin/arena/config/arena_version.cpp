@@ -1,13 +1,11 @@
 #include <functional>
-#include <iostream>
 
+#include "arena/common/log.hpp"
 #include "arena/config/version.hpp"
 
-using namespace std;
-
 int main() {
-    std::cout << "Project Version: " << arena::version() << std::endl;
-    std::cout << "Project Version hash: " << std::hash<std::string>{}(arena::version()) << std::endl;
+    spdlog::info("Project Version: {}", arena::version());
+    spdlog::info("Project Version hash: {}", std::hash<std::string>{}(arena::version()));
 
-    return 0;
+    return EXIT_SUCCESS;
 }
