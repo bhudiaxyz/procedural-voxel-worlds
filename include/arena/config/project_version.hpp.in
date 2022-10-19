@@ -1,0 +1,11 @@
+#ifndef _ARENA_CONFIG_PROJECT_VERSION_HPP_
+#define _ARENA_CONFIG_PROJECT_VERSION_HPP_
+
+// The configured version settings for main project
+#define PROJECT_VERSION_MAJOR @ProceduralVoxelWorlds_VERSION_MAJOR@
+#define PROJECT_VERSION_MINOR @ProceduralVoxelWorlds_VERSION_MINOR@
+#define PROJECT_VERSION_PATCH @ProceduralVoxelWorlds_VERSION_PATCH@
+
+#define PROJECT_VERSION "@ProceduralVoxelWorlds_VERSION_MAJOR@.@ProceduralVoxelWorlds_VERSION_MINOR@.@ProceduralVoxelWorlds_VERSION_PATCH@"
+
+#endif  // _ARENA_CONFIG_PROJECT_VERSION_HPP_
