@@ -67,6 +67,10 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 include(compiler_options)
 set_project_compiler_options()
 
+include(sanitizers)
+#set(ENABLE_SANITIZER_ADDRESS ON)
+enable_sanitizers()
+
 # Setup Glad
 set(GLAD_API "gl=4.1" CACHE STRING "" FORCE)
 set(GLAD_EXTENSIONS "GL_EXT_texture_filter_anisotropic" CACHE STRING "" FORCE)
