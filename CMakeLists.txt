@@ -31,6 +31,7 @@ set(MAIN_PROJECT_BUILD_DIR ${PROJECT_BINARY_DIR})
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif ()
+add_compile_options("$<$<CONFIG:DEBUG>:-D_DEBUG>")
 
 message(STATUS "Started CMake for ${PROJECT_NAME} v${PROJECT_VERSION}...")
 
@@ -63,30 +64,10 @@ message(STATUS "CXX Compiler executable: ${CMAKE_CXX_COMPILER}")
 message(STATUS "Linker executable: ${CMAKE_LINKER}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-add_compile_options("$<$<CONFIG:DEBUG>:-D_DEBUG>")
-add_compile_options(-Wno-psabi)
+include(compiler_options)
+set_project_compiler_options()
 
-# Hide noise related to deprecated warnings like:
-# warning: 'glDrawArrays' is deprecated: first deprecated in macOS 10.14 - OpenGL API deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings) [-Wdeprecated-declarations]
-add_compile_options(-DGL_SILENCE_DEPRECATION)
-
-# Enable GCC/clang ANSI-colored terminal output using Ninja build tool
-# TODO: Switch to `CMAKE_COLOR_DIAGNOSTICS` with cmake 3.24 in the future
-if (FORCE_COLORED_OUTPUT)
-    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-        add_compile_options(-fdiagnostics-color=always)
-    elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-        add_compile_options(-fcolor-diagnostics)
-    endif ()
-endif ()
-
-# if (APPLE)
-#     add_compile_options(-Wno-deprecated-volatile -Wno-deprecated-declarations)
-# endif ()
-# add_compile_options(-Wall -Wextra)
-add_compile_options(-Wno-deprecated-volatile -Wno-deprecated-declarations)
-
-#Setup Glad
+# Setup Glad
 set(GLAD_API "gl=4.1" CACHE STRING "" FORCE)
 set(GLAD_EXTENSIONS "GL_EXT_texture_filter_anisotropic" CACHE STRING "" FORCE)
 
