@@ -10,6 +10,8 @@ class MainConan(ConanFile):
     )
 
     requires = (
+        "entt/3.10.3",
+        "fmt/9.1.0",
         "freetype/2.12.1",
         "glad/0.1.36",
         "glfw/3.3.8",
