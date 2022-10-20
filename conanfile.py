@@ -10,18 +10,18 @@ class MainConan(ConanFile):
     )
 
     requires = (
+        "freetype/2.12.1",
         "glad/0.1.36",
         "glfw/3.3.8",
         "glm/0.9.9.8",
-        "glslang/11.7.0",
-        # "sfml/2.5.1",
-        # "imgui/1.88",
+        "gtest/1.12.1",
         "spdlog/1.10.0",
         "stb/cci.20210910",
+        # "glslang/11.7.0",
+        # "imgui/1.88",
+        # "sfml/2.5.1",
         # "tinygltf/2.5.0",
         # "toml11/3.7.1",
-        "gtest/1.12.1",
-        "freetype/2.12.1",
     )
 
     options = {
