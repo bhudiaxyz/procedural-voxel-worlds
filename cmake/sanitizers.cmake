@@ -47,10 +47,7 @@ function(enable_sanitizers)
             endif ()
         endif ()
 
-        list(JOIN
-                SANITIZERS
-                ","
-                LIST_OF_SANITIZERS)
+        list(JOIN SANITIZERS "," LIST_OF_SANITIZERS)
 
     endif ()
 
