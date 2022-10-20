@@ -28,6 +28,12 @@ set(MAIN_PROJECT_VERSION ${PROJECT_VERSION})
 set(MAIN_PROJECT_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 set(MAIN_PROJECT_BUILD_DIR ${PROJECT_BINARY_DIR})
 
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+endif ()
+
+message(STATUS "Started CMake for ${PROJECT_NAME} v${PROJECT_VERSION}...")
+
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 # Generate (tokens expanded) header file
@@ -56,6 +62,9 @@ message(STATUS "C Compiler executable: ${CMAKE_C_COMPILER}")
 message(STATUS "CXX Compiler executable: ${CMAKE_CXX_COMPILER}")
 message(STATUS "Linker executable: ${CMAKE_LINKER}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
+add_compile_options("$<$<CONFIG:DEBUG>:-D_DEBUG>")
+add_compile_options(-Wno-psabi)
 
 # Hide noise related to deprecated warnings like:
 # warning: 'glDrawArrays' is deprecated: first deprecated in macOS 10.14 - OpenGL API deprecated. (Define GL_SILENCE_DEPRECATION to silence these warnings) [-Wdeprecated-declarations]

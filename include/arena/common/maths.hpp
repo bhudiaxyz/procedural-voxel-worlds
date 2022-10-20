@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <cmath>
 
+#define GLM_FORCE_CXX11
 #define GLM_FORCE_SWIZZLE
 #define GLM_ENABLE_EXPERIMENTAL
 
