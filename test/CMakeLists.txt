@@ -18,6 +18,7 @@ foreach (arena_area ${PROJECT_BUILD_TESTS})
     # ======== setup project test target ========
     file(GLOB_RECURSE test_binary_sources ${PROJECT_SOURCE_DIR}/arena/${arena_area}/*.cpp)
     add_executable(${test_binary_name} ${test_binary_sources})
+    target_compile_features(${test_binary_name} PUBLIC cxx_std_20)
     target_include_directories(${test_binary_name} PUBLIC ${MAIN_PROJECT_INCLUDE_DIRS})
     set(link_libraries arena ${CONAN_LIBS})
     target_link_libraries(${test_binary_name} ${link_libraries})
