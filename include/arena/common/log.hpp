@@ -18,7 +18,7 @@
 
 namespace arena {
 
-inline void logger_init(char const *prog_name = nullptr) {
+static inline void logger_init(char const *prog_name = nullptr) {
 #ifndef NDEBUG
     spdlog::set_level(spdlog::level::debug);
 #endif
